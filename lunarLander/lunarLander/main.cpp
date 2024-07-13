@@ -124,7 +124,7 @@ GLuint load_texture(const char* filepath) {
 
 void initialise() {
     SDL_Init(SDL_INIT_VIDEO);
-    g_display_window = SDL_CreateWindow("Hello, Entities!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+    g_display_window = SDL_CreateWindow("Project 3: Lunar Lander", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
                                         WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_OPENGL);
 
     SDL_GLContext context = SDL_GL_CreateContext(g_display_window);
@@ -218,7 +218,7 @@ void initialise() {
     
     // ––––– PCS ––––– //
     g_game_state.platforms[3].m_texture_id = pc_texture_id;
-    g_game_state.platforms[3].set_position(glm::vec3(-1.75f, -2.75f, 0.0f));
+    g_game_state.platforms[3].set_position(glm::vec3(-1.95f, -3.15f, 0.0f));
     g_game_state.platforms[3].set_width(0.25f);
     g_game_state.platforms[3].set_height(1.0f);
     g_game_state.platforms[3].set_entity_type(PC);
@@ -226,22 +226,20 @@ void initialise() {
     g_game_state.platforms[3].set_size(glm::vec3(1.128f, 1.114f, 0.0f));
     
     g_game_state.platforms[4].m_texture_id = pc_texture_id;
-    g_game_state.platforms[4].set_position(glm::vec3(1.75f, -2.75f, 0.0f));
+    g_game_state.platforms[4].set_position(glm::vec3(1.95f, -3.15f, 0.0f));
     g_game_state.platforms[4].set_width(0.25f);
     g_game_state.platforms[4].set_height(1.0f);
     g_game_state.platforms[4].set_entity_type(PC);
     g_game_state.platforms[4].update(0.0f, NULL, 0, g_win, g_lose, g_nofuel);
     g_game_state.platforms[4].set_size(glm::vec3(1.128f, 1.114f, 0.0f));
     
-    // ––––– PLAYER (GEORGE) ––––– //
-    // Existing
     // ————— PLAYER ————— //
     GLuint player_texture_id = load_texture(SPRITESHEET_FILEPATH);
     g_game_state.player = new Entity();
-    g_game_state.player->set_position(glm::vec3(4.0f, 4.0f, 0.0f));
+    g_game_state.player->set_position(glm::vec3(0.0f, 0.0f, 0.0f));
     g_game_state.player->set_movement(glm::vec3(0.0f, 0.0f, 0.0f));
     g_game_state.player->set_entity_type(PLAYER);
-    g_game_state.player->m_speed = 2.5f;
+    g_game_state.player->m_speed = 5.0f;
     g_game_state.player->set_acceleration(glm::vec3(0.0f, -3.0f, 0.0f));
     
     int player_walking_animation[4][4] = {
@@ -255,7 +253,7 @@ void initialise() {
 
     g_game_state.player = new Entity(
         player_texture_id,         // texture id
-        2.5f,                      // speed
+        3.0f,                      // speed
         acceleration,              // acceleration
         3.0f,                      // jumping power
         player_walking_animation,  // animation index sets

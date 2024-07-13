@@ -50,7 +50,7 @@ public:
     glm::mat4 m_model_matrix;
     EntityType m_entity_type;
     float m_speed;
-    float m_fuel = 100.0f;
+    float m_fuel = 75.0f;
 
     // ————— METHODS ————— //
     Entity();

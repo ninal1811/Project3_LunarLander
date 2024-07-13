@@ -202,15 +202,13 @@ void Entity::update(float delta_time, Entity* collidable_entities, int collidabl
         } else {
             if (m_velocity.x < 0.0f) {
                 m_acceleration.x = 1.0f * m_speed;
-//                m_fuel -= 0.15f;
             } else {
                 m_acceleration.x = -1.0f * m_speed;
-//                m_fuel -= 0.15f;
             }
         }
     } else {
         m_acceleration.x = m_movement.x * m_speed;
-        m_fuel -= 0.2f;
+        m_fuel -= 1.0f;
     }
     
     if (m_movement.y == 0.0f) {
@@ -219,15 +217,13 @@ void Entity::update(float delta_time, Entity* collidable_entities, int collidabl
         } else {
             if (m_velocity.y < -0.25f) {
                 m_acceleration.y = 1.0f * m_speed;
-//                m_fuel -= 0.15f;
             } else {
                 m_acceleration.y = -1.0f * m_speed;
-//                m_fuel -= 0.15f;
             }
         }
     } else {
         m_acceleration.y = m_movement.y * m_speed;
-        m_fuel -= 0.2f;
+        m_fuel -= 1.0f;
     }
     
     m_movement = glm::vec3(0.0f, 0.0f, 0.0f);
